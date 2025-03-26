@@ -1,0 +1,6 @@
+dir or ls
+เข้าโฟเดอร์ cd ชื่อโฟเดอร์
+ออกโฟเดอร์ cd ..
+clear
+cd server
+PS C:\Users\DELL\Documents\700\Html\server> npm init

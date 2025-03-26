@@ -1,0 +1,19 @@
+docker run nginx
+
+docker ps --all
+
+docker stop CONTAINER ID or NAMES
+
+docker rm CONTAINER ID () or NAMES
+
+docker run -p 8888:80 nginx
+
+docker run --name mrnignx -d -p 8888:80 nginx
+
+docker images
+
+docker image rm REPOSITORY 
+
+docker compose up
+
+docker compose down
