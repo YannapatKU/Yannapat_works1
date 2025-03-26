@@ -13,16 +13,40 @@ console.log('on load')
 
     //2.นำuser ที่โหลดมาใส่กลับเข้าไปใน html
     const userDOW = document.getElementById('user')
-    let htmlData = '<div>'
-    for(let i=0;i<response.data.length;i++){
+    let htmlData = `
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ชื่อ</th>
+                    <th>นามสกุล</th>
+                    <th>อายุ</th>
+                    <th>เพศ</th>
+                    <th>การจัดการ</th>
+                </tr>
+            </thead>
+            <tbody>
+    `
+    for (let i = 0; i < response.data.length; i++) {
         let user = response.data[i]
-        htmlData += `<div>
-        ${user.id} ${user.firstname} ${user.lastname}
-        <a href='index.html?id=${user.id}'><button class="btn btn-warning btn-sm">Edit</button></a>
-        <button class='delete btn btn-danger btn-sm' data-id='${user.id}'>Delete</button>
-        </div>`
+        htmlData += `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.firstname}</td>
+                <td>${user.lastname}</td>
+                <td>${user.age}</td>
+                <td>${user.gender}</td>
+                <td>
+                    <a href='index.html?id=${user.id}'><button class="btn btn-warning btn-sm">Edit</button></a>
+                    <button class='delete btn btn-danger btn-sm' data-id='${user.id}'>Delete</button>
+                </td>
+            </tr>
+        `
     }
-    htmlData +='</div>'
+    htmlData += `
+            </tbody>
+        </table>
+    `
     userDOW.innerHTML = htmlData
     
     const deleteDOMs = document.getElementsByClassName('delete')
