@@ -14,7 +14,8 @@ console.log('on load')
     //2.นำuser ที่โหลดมาใส่กลับเข้าไปใน html
     const userDOW = document.getElementById('user')
     let htmlData = `
-        <table class="table table-bordered table-striped">
+    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+        <table class="table table-bordered table-striped table-dark">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -46,6 +47,7 @@ console.log('on load')
     htmlData += `
             </tbody>
         </table>
+    </div>
     `
     userDOW.innerHTML = htmlData
     

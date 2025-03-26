@@ -5,7 +5,8 @@
 
 body {
     font-family: "kanit";
-    background-color: rgb(145, 145, 145);
+    background-color: white;
+    /* rgb(145, 145, 145) */
 }
 .container {
     width: 100%;
