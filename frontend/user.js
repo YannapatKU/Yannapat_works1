@@ -14,6 +14,7 @@ console.log('on load')
     //2.นำuser ที่โหลดมาใส่กลับเข้าไปใน html
     const userDOW = document.getElementById('user')
     let htmlData = `
+    <input type="text" id="search" class="form-control mb-3" placeholder="ค้นหาผู้ใช้..." oninput="searchUser()">
     <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
         <table class="table table-bordered table-striped table-dark">
             <thead>
@@ -63,5 +64,20 @@ console.log('on load')
                 console.error(error)
             }
         })
+    }
+    const searchUser = () => {
+        const searchInput = document.getElementById('search').value.toLowerCase();
+        const rows = document.querySelectorAll('#userTableBody tr');
+    
+        rows.forEach(row => {
+            const firstname = row.children[1].textContent.toLowerCase();
+            const lastname = row.children[2].textContent.toLowerCase();
+    
+            if (firstname.includes(searchInput) || lastname.includes(searchInput)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
     }
 }
