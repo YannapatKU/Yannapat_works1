@@ -136,22 +136,6 @@ app.delete('/users/:id', async(req, res) => {
   }  
 })
 
-const searchUser = () => {
-  const searchInput = document.getElementById('search').value.toLowerCase();
-  const rows = document.querySelectorAll('tbody tr');
-  
-  rows.forEach(row => {
-      const firstname = row.children[1].textContent.toLowerCase();
-      const lastname = row.children[2].textContent.toLowerCase();
-      
-      if (firstname.includes(searchInput) || lastname.includes(searchInput)) {
-          row.style.display = '';
-      } else {
-          row.style.display = 'none';
-      }
-  });
-};
-
 app.listen(port, async(req, res) => {
   await initMySQL()
     console.log('http server running on', + port);
